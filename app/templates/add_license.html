@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="medium-2 cell"></div>
+            <div class="medium-8 cell">
+                <h1>Add new license</h1>
+                <form id="add-form" action="" method="post" novalidate>
+                    {{ add_form.hidden_tag() }}
+                    <p>
+                        {{ add_form.product.label }}
+                        {{ add_form.product }}
+                    </p>
+                    <p>
+                        {{ add_form.key.label }}
+                        {{ add_form.key }}
+                    </p>
+                    <p>
+                        {{ add_form.expire.label }}
+                        {{ add_form.expire }}
+                        <span class='help-text'>Please input the date in correct format: 31.12.2020 (day.month.year)</span>
+                    </p>
+                    <p>
+                        {{ add_form.email.label }}
+                        {{ add_form.email }}
+                        <span class='help-text'>E-mail for which the license is registered</span>
+                    </p>
+                    <div class="grid-x">
+                        <div class="medium-1 cell">
+                            {{ add_form.active(checked="checked") }}
+                        </div>
+                        <div class="medium-11 cell">
+                            {{ add_form.active.label }}
+                        </div>
+                    </div>
+                    <br>
+                    <p>{{ add_form.submit(class='expanded success button', form="add-form") }}</p>
+                </form>
+            </div>
+            <div class="medium-2 cell"></div>
+        </div>
+    </div>
+
+{% endblock %}

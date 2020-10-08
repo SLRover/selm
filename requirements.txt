@@ -1,0 +1,14 @@
+flask
+flask-sqlalchemy
+flask-wtf
+flask-migrate
+flask-login
+jinja2
+wtforms
+sqlalchemy
+werkzeug
+psycopg2
+pytest
+gunicorn
+configparser
+pytz

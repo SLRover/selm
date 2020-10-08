@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="medium-2 cell"></div>
+        <div class="medium-8 cell">
+            <h1>Edit license <small>{{ license.product }}</small></h1>
+            <form id="edit-form-{{ license.id }}" action="" method="post" novalidate>
+                {{ edit_form.hidden_tag() }}
+                {{ edit_form.id(value=license.id, type='hidden') }}
+                <p>
+                    {{ edit_form.product.label }}
+                    {{ edit_form.product(value=license.product) }}
+                </p>
+                <p>
+                    {{ edit_form.key.label }}
+                    {{ edit_form.key(value=license.key) }}
+                </p>
+                <p>
+                    {{ edit_form.expire.label }}
+
+                    {% if license.expire %}
+                        {{ edit_form.expire(value=license.expire) }}
+                    {% else %}
+                        {{ edit_form.expire }}
+                    {% endif %}
+
+                    <span class='help-text'>Please input the date in correct format: 31.12.2020 (day.month.year)</span>
+                </p>
+                <p>
+                    {{ edit_form.email.label }}
+                    {{ edit_form.email(value=license.email) }}
+                    <span class='help-text'>E-mail for which the license is registered</span>
+                </p>
+                <div class="grid-x">
+                    <div class="medium-1 cell">
+                        {% if license.active %}
+                            {{ edit_form.active(checked="checked") }}
+                        {% else %}
+                            {{ edit_form.active() }}
+                        {% endif %}
+                    </div>
+                    <div class="medium-11 cell">
+                        {{ edit_form.active.label }}
+                    </div>
+                </div>
+                <br>
+                <p>{{ edit_form.submit(class='expanded success button', form="edit-form-" ~ license.id) }}</p>
+            </form>
+        </div>
+        <div class="medium-2 cell"></div>
+    </div>
+</div>
+
+{% endblock %}

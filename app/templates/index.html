@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="medium-6 cell">
+                <h1>My Licenses</h1>
+            </div>
+            <div class="medium-6 cell text-right">
+                <a href="{{ url_for('routes_bp.add_license') }}" class="success button add-new">Add new</a>
+            </div>
+            <div class="medium-12 cell">
+                <table id="licenses-table">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Key</th>
+                        <th>E-mail</th>
+                        <th class="text-center">Expire</th>
+                        <th class="text-center">Active</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for license in licenses %}
+                        <tr>
+                            <td>{{ license.product }}</td>
+                            <td>{{ license.key }}</td>
+                            <td>{{ license.email }}</td>
+                            <td class="text-center">{{ license.expire }}</td>
+                            <td class="text-center">
+                                {% if license.active %}
+                                    <i class="fi-check green"></i>
+                                {% else %}
+                                    <i class="fi-x red"></i>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ url_for('routes_bp.edit_license', license_id=license.id) }}">
+                                    <i class="fi-page-edit size-20 blue"></i>
+                                </a>&nbsp;&nbsp;&nbsp;
+                                <a data-open="remove-license-{{ license.id }}">
+                                    <i class="fi-page-delete size-20 red"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                        {# Remove license modal #}
+                        <div id="remove-license-{{ license.id }}" class="reveal tiny padding-20 text-center" data-reveal>
+                            <h2>Delete <u>{{ license.product }}</u>?</h2>
+                            <form id="remove-form-{{ license.id }}" action="" method="post">
+                                {{ remove_form.hidden_tag() }}
+                                {{ remove_form.remove_id(value=license.id, type='hidden') }}
+                                {{ remove_form.remove_submit(class='alert button margin-top-20 size-16', form="remove-form-" ~ license.id) }}
+                            </form>
+                            <button class="close-button" data-close aria-label="Close modal" type="button">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

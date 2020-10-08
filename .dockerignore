@@ -1,0 +1,28 @@
+# IDE, editors, system
+.idea
+.vscode
+.DS_Store
+
+# Databases and migrations
+data/*.db
+migrations
+
+# Environments
+venv
+.env
+
+# Cache
+__pycache__
+.pytest_cache
+tests
+
+# Settings
+config/*.ini
+
+# Ignore
+.dockerignore
+.gitignore
+
+# Git and docker
+Dockerfile
+.git

@@ -1,0 +1,73 @@
+/* Top bar */
+.top-bar, .top-bar ul {background-color: #f5f6fa;}
+.top-bar {margin-bottom: 20px;}
+.logo {
+    width: 36px;
+    height: 36px;
+    margin-left: 10px;
+}
+
+/* Licenses table */
+#licenses-table {
+    margin-top: 20px;
+}
+
+/* Alerts */
+.alert-callout-container {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+}
+.alert-callout-border {
+    width: 350px;
+    font-size: 14px;
+    padding: 1.3rem;
+    border-left-width: 0.3125rem;
+    border-left-color: #cacaca;
+}
+.alert-callout-border .close-button {
+    position: absolute;
+    top: 45%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.alert-callout-border strong {color: #0a0a0a;}
+.alert-callout-border.radius {border-radius: 0.6rem;}
+.alert-callout-border.primary {border-left-color: #1779ba;}
+.alert-callout-border.primary strong {color: #1779ba;}
+.alert-callout-border.secondary {border-left-color: #767676;}
+.alert-callout-border.secondary strong {color: #767676;}
+.alert-callout-border.alert {border-left-color: #cc4b37;}
+.alert-callout-border.alert strong {color: #cc4b37;}
+.alert-callout-border.success {border-left-color: #3adb76;}
+.alert-callout-border.success strong {color: #3adb76;}
+.alert-callout-border.warning {border-left-color: #ffae00;}
+.alert-callout-border.warning strong {color: #ffae00;}
+
+/* Buttons */
+.add-new {
+    margin-top: 12px;
+}
+.button.success:hover {color: #ffffff;}
+
+/* Margins and paddings */
+.margin-20 {margin: 20px;}
+.margin-top-20 {margin-top: 20px;}
+.padding-20 {padding: 20px;}
+.padding-button {padding-right: 100px; padding-left: 100px}
+
+/* Form styles */
+#expire, #email {margin: 0;}
+
+/* Colors */
+.red {color: #e84118}
+.green {color: #4cd137}
+.blue {color: #00a8ff}
+.yellow {color: #fbc531}
+
+/* Sizes */
+.size-12 {font-size: 12px}
+.size-16 {font-size: 16px}
+.size-20 {font-size: 20px}
+.size-24 {font-size: 24px}

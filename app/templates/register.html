@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="medium-3 cell"></div>
+            <div class="medium-6 cell">
+                <h1 class="text-center">Register</h1>
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.username.label }}
+                        {{ form.username(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.email.label }}
+                        {{ form.email(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.full_name.label }}
+                        {{ form.full_name(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.password.label }}
+                        {{ form.password(size=32) }}
+                    </p>
+                    <p>&nbsp;</p>
+                    <p>{{ form.submit(class='expanded primary button') }}</p>
+
+                </form>
+            </div>
+            <div class="medium-3 cell"></div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SELM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='foundation-icons/foundation-icons.css') }}">
+</head>
+<body>
+
+    {# Flash messages container #}
+    <div class="alert-callout-container">
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+            <div data-closable class="callout alert-callout-border {{ category }}">
+                {{ message }}
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Main nav bar #}
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <img class="logo" src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo">
+                <li class="menu-text">SELM</li>
+                <li><a href="{{ url_for('routes_bp.index') }}">Licenses</a></li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                {% if current_user.is_authenticated %}
+                    <li class="menu-text">{{ current_user.fullname }}</li>
+                    <li><a href="{{ url_for('routes_bp.logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('routes_bp.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('routes_bp.register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+<script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/foundation.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
